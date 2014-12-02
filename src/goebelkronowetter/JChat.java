@@ -10,11 +10,11 @@ import javax.swing.*;
  * @version 2014-12-1
  */
 public class JChat extends JFrame implements Runnable{
-	private Thread activity = new Thread(this);
+	private Thread chat = new Thread(this);
 	private String name;
 	private InetAddress address;
 	private int port;
-	protected MulticastSocket so;
+	protected MulticastSocket socket;
 	private GUIStart gui;
 
 	/**
@@ -24,19 +24,14 @@ public class JChat extends JFrame implements Runnable{
 	 * @param port the port
 	 */
 	public JChat(String username, String address, int port){
-		if(CheckArguments.checkUsername(username) == true)
-			this.name = username;
-		else{
-			this.name="user"+(int)(Math.random()*90)+1;
-			JOptionPane.showMessageDialog(null, "This username is not in the correct format, we used "+this.name+" instead.");
-		}
+		this.name = username;
 		try {
 			this.address = InetAddress.getByName(address);
 			this.gui = new GUIStart(username,this.address,9876,this);
 			this.port = port;
-			so = new MulticastSocket(port);
-			so.joinGroup(this.address);
-			this.activity.start();
+			socket = new MulticastSocket(port);
+			socket.joinGroup(this.address);
+			this.chat.start();
 			sendMess("// "+name+" is online!");
 		} catch (UnknownHostException e) {
 			System.err.println("Unkown Host");
@@ -58,7 +53,7 @@ public class JChat extends JFrame implements Runnable{
 		DatagramPacket packet = new DatagramPacket(data,data.length,address,port);
 		try {
 			
-			so.send(packet);
+			socket.send(packet);
 		}
 		catch(IOException ie) {
 			JOptionPane.showMessageDialog(null, "Data overflow !");
@@ -77,7 +72,7 @@ public class JChat extends JFrame implements Runnable{
 		while(true)
 			try {
 				DatagramPacket packet = new DatagramPacket(data,data.length);
-				so.receive(packet);
+				socket.receive(packet);
 				String mess = new String(data,0,packet.getLength());
 				gui.appendTxt(mess+ "\n");
 			}

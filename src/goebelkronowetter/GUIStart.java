@@ -46,12 +46,12 @@ public class GUIStart implements ActionListener{
 		else if(e.getSource()==panel.getQuit()) {
 			chat.sendMess("// "+username+" is offline!");
 			try {
-				chat.so.leaveGroup(ip);
+				chat.socket.leaveGroup(ip);
 			}
 			catch(IOException ie) {
 				JOptionPane.showMessageDialog(null, "Data overflow, connection error !");
 			}
-			chat.so.close();
+			chat.socket.close();
 			chat.dispose();
 			System.exit(0);
 		}else if(e.getSource()==panel.getBadWords()){
