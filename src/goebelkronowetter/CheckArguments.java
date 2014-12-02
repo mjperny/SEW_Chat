@@ -28,11 +28,11 @@ public class CheckArguments {
 	 * @param address die zu pruefende adresse
 	 * @return ob es gueltig ist
 	 */
-	public static boolean checkIPFormat(String address) {
-		String IPADDRESS_PATTERN = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";
+	public static boolean checkMultiCastAddressFormat(String address) {
+		String IPADDRESS_PATTERN = "2(?:2[4-9]|3\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d?|0)){3}";
 		if ((address.matches(IPADDRESS_PATTERN)))
 			return true;
-		System.err.println("Not a valid IP-Address.");
+		System.err.println("Not a valid MultiCast-Address. Use a adress between 224.0.0.0 and 239.255.255.255");
 		return false;
 	}
 }
