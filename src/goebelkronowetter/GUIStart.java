@@ -1,11 +1,8 @@
 package goebelkronowetter;
 
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.IOException;
 import java.net.InetAddress;
-
 import javax.swing.*;
 
 /**
@@ -19,7 +16,7 @@ public class GUIStart implements ActionListener{
 	JChat chat;
 	String username;
 	InetAddress ip;
-	
+
 	/**
 	 * Makes a new Model and control arguments for networking
 	 * @param username the username 
@@ -52,12 +49,18 @@ public class GUIStart implements ActionListener{
 				chat.so.leaveGroup(ip);
 			}
 			catch(IOException ie) {
-				Toolkit.getDefaultToolkit().beep();
 				JOptionPane.showMessageDialog(null, "Data overflow, connection error !");
 			}
 			chat.so.close();
 			chat.dispose();
 			System.exit(0);
+		}else if(e.getSource()==panel.getBadWords()){
+			if(panel.getBadWords().getText().equals("Censor bad words"))
+				System.out.println("No bad words please!");
+			else
+				System.out.println("Bad words again..");
+			panel.changeBadWords();
+			//TODO: censor bad words
 		}
 	}
 }

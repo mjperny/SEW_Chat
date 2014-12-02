@@ -1,9 +1,5 @@
 package goebelkronowetter;
 
-import java.awt.BorderLayout;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.*;
 
@@ -32,7 +28,7 @@ public class JChat extends JFrame implements Runnable{
 			this.name = username;
 		else{
 			this.name="user"+(int)(Math.random()*90)+1;
-			JOptionPane.showMessageDialog(null, "This username is not okay, we used "+this.name);
+			JOptionPane.showMessageDialog(null, "This username is not in the correct format, we used "+this.name+" instead.");
 		}
 		try {
 			this.address = InetAddress.getByName(address);
@@ -43,11 +39,9 @@ public class JChat extends JFrame implements Runnable{
 			this.activity.start();
 			sendMess("// "+name+" is online!");
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("Unkown Host");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("Something is wrong with IO");
 		}
 	}
 	/**
@@ -63,6 +57,7 @@ public class JChat extends JFrame implements Runnable{
 		}
 		DatagramPacket packet = new DatagramPacket(data,data.length,address,port);
 		try {
+			
 			so.send(packet);
 		}
 		catch(IOException ie) {

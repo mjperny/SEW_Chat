@@ -1,9 +1,6 @@
 package goebelkronowetter;
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Enumeration;
+
 /**
  * Helping methods to check if the arguments are correct.
  * @author Melanie Goebel
