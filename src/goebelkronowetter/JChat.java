@@ -29,8 +29,8 @@ public class JChat extends JFrame implements Runnable{
 			this.address = InetAddress.getByName(address);
 			this.gui = new GUIStart(username,this.address,9876,this);
 			this.port = port;
-			socket = new MulticastSocket(port);
-			socket.joinGroup(this.address);
+			socket = new MulticastSocket(port);// create a socket on this port
+			socket.joinGroup(this.address);// Makes a group with the address
 			this.chat.start();
 			sendMess("// "+name+" is online!");
 		} catch (UnknownHostException e) {
@@ -74,13 +74,21 @@ public class JChat extends JFrame implements Runnable{
 				DatagramPacket packet = new DatagramPacket(data,data.length);
 				socket.receive(packet);
 				String mess = new String(data,0,packet.getLength());
-				gui.appendTxt(mess+ "\n");
+				gui.appendTxt(writeMessage(mess));
 			}
 
 		catch(IOException e) {
 			break;
 		}
 
+	}
+	/**
+	 * Write a message with backspace on the end
+	 * @param message the message
+	 * @return message with backspace
+	 */
+	public  String writeMessage(String message){
+		return message+ "\n";
 	}
 
 
