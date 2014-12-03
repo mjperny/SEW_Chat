@@ -52,7 +52,7 @@ public class GUIStart implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Data overflow, connection error !");
 			}
 			chat.socket.close();
-			chat.dispose();
+			frame.dispose();
 			System.exit(0);
 		}else if(e.getSource()==panel.getBadWords()){
 			if(panel.getBadWords().getText().equals("Censor bad words"))

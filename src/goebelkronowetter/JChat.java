@@ -9,13 +9,13 @@ import javax.swing.*;
  * @author Melanie Goebel
  * @version 2014-12-1
  */
-public class JChat extends JFrame implements Runnable{
+public class JChat implements Runnable{
 	private Thread chat = new Thread(this);
-	private String name;
-	private InetAddress address;
-	private int port;
+	private String name;// the username
+	private InetAddress address;//multicast address for the group
+	private int port;// port where the socket run
 	protected MulticastSocket socket;
-	private GUIStart gui;
+	private GUIStart gui;// the gui starts when arguments are correct
 
 	/**
 	 * Makes all networking things.
@@ -45,14 +45,14 @@ public class JChat extends JFrame implements Runnable{
 	 */
 	public void sendMess(String s) {
 		byte[] data = null;
-		if(s.matches("^//[a-z A-Z 0-9_-]{3,15} (is online!|is offline!)$")){
+		if(s.matches("^//[a-z A-Z 0-9_-]{3,15} (is online!|is offline!)$")){// Regex to check if the message
+			//is only a information (user online or offline)
 			data = s.getBytes();
 		}else{
-			data = (name + ": " + s).getBytes();
+			data = (name + ": " + s).getBytes();// Gives the message a user (username: message)
 		}
 		DatagramPacket packet = new DatagramPacket(data,data.length,address,port);
 		try {
-			
 			socket.send(packet);
 		}
 		catch(IOException ie) {
