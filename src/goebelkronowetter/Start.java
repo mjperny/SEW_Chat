@@ -21,8 +21,8 @@ public class Start {
 	 * @param user the username
 	 * @param add the multicastaddress
 	 */
-	public static void startChat(String user, String add){
-		JChat chat = new JChat(user,add,9876);
+	public static void startChat(String user, String add, int port){
+		JChat chat = new JChat(user,add,port);
 	}
 }
 
