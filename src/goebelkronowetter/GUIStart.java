@@ -40,11 +40,11 @@ public class GUIStart implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==panel.getWrite()) {
-			chat.sendMess(panel.getWrite().getText());
+			chat.sendMessage(panel.getWrite().getText());
 			panel.getWrite().setText("");
 		}
 		else if(e.getSource()==panel.getQuit()) {
-			chat.sendMess("// "+username+" is offline!");
+			chat.sendMessage("// "+username+" is offline!");
 			try {
 				chat.socket.leaveGroup(ip);
 			}

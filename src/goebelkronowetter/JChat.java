@@ -9,7 +9,7 @@ import javax.swing.*;
  * @author Melanie Goebel
  * @version 2014-12-1
  */
-public class JChat implements Runnable{
+public class JChat implements Runnable,Chat{
 	private Thread chat = new Thread(this);
 	private String name;// the username
 	private InetAddress address;//multicast address for the group
@@ -32,7 +32,7 @@ public class JChat implements Runnable{
 			socket = new MulticastSocket(port);// create a socket on this port
 			socket.joinGroup(this.address);// Makes a group with the address
 			this.chat.start();
-			sendMess("// "+name+" is online!");
+			sendMessage("// "+name+" is online!");
 		} catch (UnknownHostException e) {
 			System.err.println("Unkown Host");
 		} catch (IOException e) {
@@ -43,7 +43,7 @@ public class JChat implements Runnable{
 	 * Send a message
 	 * @param s the message
 	 */
-	public void sendMess(String s) {
+	public void sendMessage(String s) {
 		byte[] data = null;
 		if(s.matches("^//[a-z A-Z 0-9_-]{3,15} (is online!|is offline!)$")){// Regex to check if the message
 			//is only a information (user online or offline)
