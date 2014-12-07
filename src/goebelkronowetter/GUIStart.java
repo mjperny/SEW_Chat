@@ -69,6 +69,14 @@ public class GUIStart implements ActionListener{
 			if (panel.getShouter().isSelected()){
 				decoratedChat = new Shouter(decoratedChat);
 			}
+			if (panel.getConverter().isSelected()){
+				try {
+					decoratedChat = new Converter(decoratedChat);
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(null, "Error", e1.getMessage(), JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}
 		}
 	}
 }

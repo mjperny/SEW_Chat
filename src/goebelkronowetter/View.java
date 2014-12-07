@@ -18,6 +18,7 @@ public class View extends JPanel{
 	private JButton quit = new JButton("Go Offline");
 	private JToggleButton badwords = new JToggleButton("BadWords");
 	private JToggleButton shouter = new JToggleButton("Shouter");
+	private JToggleButton converter = new JToggleButton("Converter");
 	
 	public View(ActionListener ac){
 		txt.setEditable(true);
@@ -30,6 +31,7 @@ public class View extends JPanel{
 		add(sp,BorderLayout.CENTER);
 		buttons.add(badwords);
 		buttons.add(shouter);
+		buttons.add(converter);
 		buttons.add(quit);
 		eing.add(buttons);
 		eing.add(write);
@@ -38,8 +40,12 @@ public class View extends JPanel{
 		quit.addActionListener(ac);
 		badwords.addActionListener(ac);
 		shouter.addActionListener(ac);
+		converter.addActionListener(ac);
 		write.addActionListener(ac);
 		
+	}
+	public JToggleButton getConverter() {
+		return converter;
 	}
 	public JToggleButton getShouter() {
 		return shouter;
