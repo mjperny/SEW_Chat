@@ -16,7 +16,7 @@ public class View extends JPanel{
 	private JScrollPane sp = new JScrollPane(txt);
 	private JTextField write = new JTextField();
 	private JButton quit = new JButton("Go Offline");
-	private JToggleButton badwords = new JToggleButton("Censor bad words");
+	private JToggleButton badwords = new JToggleButton("BadWords");
 	private JToggleButton shouter = new JToggleButton("Shouter");
 	
 	public View(ActionListener ac){
@@ -71,15 +71,6 @@ public class View extends JPanel{
 	 */
 	public JToggleButton getBadWords(){
 		return this.badwords;
-	}
-	/**
-	 * Changes the Button BadWords to Censor or not Censor the badWords
-	 */
-	public void changeBadWords(){
-		if(badwords.getText().equals("Censor bad words"))
-			badwords.setText("Bad words");
-		else
-			badwords.setText("Censor bad words");
 	}
 
 }

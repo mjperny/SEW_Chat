@@ -56,16 +56,15 @@ public class GUIStart implements ActionListener{
 //			chat.socket.close(); //nicht nötig, weil gleich darauf system.exit aufgerufen wird
 			frame.dispose();
 			System.exit(0);
-		}else if(e.getSource()==panel.getBadWords()){
-			if(panel.getBadWords().getText().equals("Censor bad words"))
-				System.out.println("No bad words please!");
-			else
-				System.out.println("Bad words again..");
-			panel.changeBadWords();
-		} else if(e.getSource() instanceof JToggleButton) {
+		}else if(e.getSource() instanceof JToggleButton) {
 			decoratedChat = chat;
 			if (panel.getBadWords().isSelected()){
-				// TODO: badwords decorator muss noch geschrieben werden
+				try {
+					decoratedChat = new BadWords(decoratedChat);
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(null, "Error", e1.getMessage(), JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
 			}
 			if (panel.getShouter().isSelected()){
 				decoratedChat = new Shouter(decoratedChat);
