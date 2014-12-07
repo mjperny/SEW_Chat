@@ -17,6 +17,7 @@ public class View extends JPanel{
 	private JTextField write = new JTextField();
 	private JButton quit = new JButton("Go Offline");
 	private JButton badwords = new JButton("Censor bad words");
+	private JToggleButton shouter = new JToggleButton("Shouter");
 	
 	public View(ActionListener ac){
 		txt.setEditable(true);
@@ -28,6 +29,7 @@ public class View extends JPanel{
 		add(quit,BorderLayout.NORTH);
 		add(sp,BorderLayout.CENTER);
 		buttons.add(badwords);
+		buttons.add(shouter);
 		buttons.add(quit);
 		eing.add(buttons);
 		eing.add(write);
@@ -35,8 +37,15 @@ public class View extends JPanel{
 		add(eing,BorderLayout.SOUTH);
 		quit.addActionListener(ac);
 		badwords.addActionListener(ac);
+		shouter.addActionListener(ac);
 		write.addActionListener(ac);
 		
+	}
+	public JToggleButton getShouter() {
+		return shouter;
+	}
+	public void setShouter(JToggleButton shouter) {
+		this.shouter = shouter;
 	}
 	/**
 	 * Gets the JTextField names write

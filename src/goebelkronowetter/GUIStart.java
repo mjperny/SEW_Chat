@@ -14,6 +14,7 @@ public class GUIStart implements ActionListener{
 	private View panel = new View(this);
 	private Model frame;
 	Chat chat;
+	Chat decoratedChat; //das ist der chat mit einem decorator
 	String username;
 	InetAddress ip;
 
@@ -24,10 +25,11 @@ public class GUIStart implements ActionListener{
 	 * @param port the port
 	 * @param chat the chatsystem
 	 */
-	public GUIStart(String username, InetAddress ip, int port, JChat chat){
+	public GUIStart(String username, InetAddress ip, int port, Chat chat){
 		this.frame = new Model(panel, "Chatting in "+ip+":"+port);
 		this.username = username;
 		this.chat= chat;
+		this.decoratedChat = chat;
 		this.ip = ip;
 	}
 	/**
@@ -40,11 +42,11 @@ public class GUIStart implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==panel.getWrite()) {
-			chat.sendMessage(panel.getWrite().getText());
+			decoratedChat.sendMessage(panel.getWrite().getText());
 			panel.getWrite().setText("");
 		}
 		else if(e.getSource()==panel.getQuit()) {
-			chat.sendMessage("// "+username+" is offline!");
+			decoratedChat.sendMessage("// "+username+" is offline!");
 //			try {
 //				chat.socket.leaveGroup(ip);
 //			}
@@ -61,6 +63,8 @@ public class GUIStart implements ActionListener{
 				System.out.println("Bad words again..");
 			panel.changeBadWords();
 			//TODO: censor bad words
+		} else if(e.getSource()==panel.getShouter()) {
+			decoratedChat = new Shouter(decoratedChat);
 		}
 	}
 }
