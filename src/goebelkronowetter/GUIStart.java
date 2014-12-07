@@ -62,9 +62,14 @@ public class GUIStart implements ActionListener{
 			else
 				System.out.println("Bad words again..");
 			panel.changeBadWords();
-			//TODO: censor bad words
-		} else if(e.getSource()==panel.getShouter()) {
-			decoratedChat = new Shouter(decoratedChat);
+		} else if(e.getSource() instanceof JToggleButton) {
+			decoratedChat = chat;
+			if (panel.getBadWords().isSelected()){
+				// TODO: badwords decorator muss noch geschrieben werden
+			}
+			if (panel.getShouter().isSelected()){
+				decoratedChat = new Shouter(decoratedChat);
+			}
 		}
 	}
 }

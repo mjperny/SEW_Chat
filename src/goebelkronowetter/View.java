@@ -16,7 +16,7 @@ public class View extends JPanel{
 	private JScrollPane sp = new JScrollPane(txt);
 	private JTextField write = new JTextField();
 	private JButton quit = new JButton("Go Offline");
-	private JButton badwords = new JButton("Censor bad words");
+	private JToggleButton badwords = new JToggleButton("Censor bad words");
 	private JToggleButton shouter = new JToggleButton("Shouter");
 	
 	public View(ActionListener ac){
@@ -44,9 +44,6 @@ public class View extends JPanel{
 	public JToggleButton getShouter() {
 		return shouter;
 	}
-	public void setShouter(JToggleButton shouter) {
-		this.shouter = shouter;
-	}
 	/**
 	 * Gets the JTextField names write
 	 * @return the JTextField write
@@ -72,7 +69,7 @@ public class View extends JPanel{
 	 * Gets the JButton badWords
 	 * @return the JButton names badWords
 	 */
-	public JButton getBadWords(){
+	public JToggleButton getBadWords(){
 		return this.badwords;
 	}
 	/**
