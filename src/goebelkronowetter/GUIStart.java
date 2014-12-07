@@ -7,13 +7,13 @@ import javax.swing.*;
 
 /**
  * Starts the GUI and controls the actions of the GUI.
- * @author Melanie Goebel
+ * @author Melanie Goebel 
  * @version 2014-12-1
  */
 public class GUIStart implements ActionListener{
 	private View panel = new View(this);
 	private Model frame;
-	JChat chat;
+	Chat chat;
 	String username;
 	InetAddress ip;
 
@@ -45,13 +45,13 @@ public class GUIStart implements ActionListener{
 		}
 		else if(e.getSource()==panel.getQuit()) {
 			chat.sendMessage("// "+username+" is offline!");
-			try {
-				chat.socket.leaveGroup(ip);
-			}
-			catch(IOException ie) {
-				JOptionPane.showMessageDialog(null, "Data overflow, connection error !");
-			}
-			chat.socket.close();
+//			try {
+//				chat.socket.leaveGroup(ip);
+//			}
+//			catch(IOException ie) {
+//				JOptionPane.showMessageDialog(null, "Data overflow, connection error !");
+//			}
+//			chat.socket.close(); //nicht nötig, weil gleich darauf system.exit aufgerufen wird
 			frame.dispose();
 			System.exit(0);
 		}else if(e.getSource()==panel.getBadWords()){

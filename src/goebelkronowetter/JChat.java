@@ -56,7 +56,8 @@ public class JChat implements Runnable,Chat{
 			socket.send(packet);
 		}
 		catch(IOException ie) {
-			JOptionPane.showMessageDialog(null, "Data overflow !");
+//			JOptionPane.showMessageDialog(null, "Data overflow !"); //untere methode ist besser 
+			JOptionPane.showMessageDialog(null, "Error", ie.getMessage(), JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	/**
@@ -90,7 +91,5 @@ public class JChat implements Runnable,Chat{
 	public  String writeMessage(String message){
 		return message+ "\n";
 	}
-
-
 }
 

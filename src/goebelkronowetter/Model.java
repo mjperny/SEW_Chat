@@ -13,6 +13,7 @@ public class Model  extends JFrame{
 		this.add(panel);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 600, 600);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
