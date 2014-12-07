@@ -55,6 +55,13 @@ public class AskDialog extends JDialog {
 		getContentPane().add(error, BorderLayout.NORTH);
 		getContentPane().add(arguments, BorderLayout.CENTER);  
 		getContentPane().add(btnPanel, BorderLayout.SOUTH);  
+		
+		input1.addActionListener(new ActionListener() {  
+			public void actionPerformed(java.awt.event.ActionEvent ae) {  
+				okButton();  
+			}  
+		});
+		
 		pack();  
 		setLocationRelativeTo(null);
 		//programm wird nicht beendet bei x beim dialog
