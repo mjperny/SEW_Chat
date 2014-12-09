@@ -9,19 +9,17 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class BadWords extends Decorator {
-	private Chat chat;
 	private String badwords;
 	
 	public BadWords(Chat chat){
-		this.chat = chat;
+		super(chat);
 		badwords = "";
 		readBadWords();
 	}
 	
 	@Override
-	public void sendMessage(String message) {
-		String gefiltert = message.replaceAll(badwords, "******");
-		chat.sendMessage(gefiltert);
+	public String writeMessage(String message) {
+		return message.replaceAll(badwords, "******");
 	}
 	
 	private void readBadWords(){

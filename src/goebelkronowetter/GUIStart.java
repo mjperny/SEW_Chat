@@ -1,7 +1,6 @@
 package goebelkronowetter;
 
 import java.awt.event.*;
-import java.io.IOException;
 import java.net.InetAddress;
 import javax.swing.*;
 
@@ -14,7 +13,6 @@ public class GUIStart implements ActionListener{
 	private View panel = new View(this);
 	private Model frame;
 	Chat chat;
-	Chat decoratedChat; //das ist der chat mit einem decorator
 	String username;
 	InetAddress ip;
 
@@ -29,7 +27,6 @@ public class GUIStart implements ActionListener{
 		this.frame = new Model(panel, "Chatting in "+ip+":"+port);
 		this.username = username;
 		this.chat= chat;
-		this.decoratedChat = chat;
 		this.ip = ip;
 	}
 	/**
@@ -42,32 +39,28 @@ public class GUIStart implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==panel.getWrite()) {
-			decoratedChat.sendMessage(panel.getWrite().getText());
+			chat.sendMessage(panel.getWrite().getText());
 			panel.getWrite().setText("");
 		}
 		else if(e.getSource()==panel.getQuit()) {
-			decoratedChat.sendMessage("// "+username+" is offline!");
-//			try {
-//				chat.socket.leaveGroup(ip);
-//			}
-//			catch(IOException ie) {
-//				JOptionPane.showMessageDialog(null, "Data overflow, connection error !");
-//			}
-//			chat.socket.close(); //nicht nötig, weil gleich darauf system.exit aufgerufen wird
+			chat.closeChat();
 			frame.dispose();
 			System.exit(0);
 		}else if(e.getSource() instanceof JToggleButton) {
-			decoratedChat = chat;
 			if (panel.getBadWords().isSelected()){
-					decoratedChat = new BadWords(decoratedChat);
-				
+				chat.setBadWords(false);
+			}else{
+				chat.setBadWords(true);
 			}
 			if (panel.getShouter().isSelected()){
-				decoratedChat = new Shouter(decoratedChat);
+				chat.setShoutIt(true);
+			}else{
+				chat.setShoutIt(false);
 			}
 			if (panel.getConverter().isSelected()){
-					decoratedChat = new Converter(decoratedChat);
-				
+				chat.setConverterOn(true);
+			}else{
+				chat.setConverterOn(false);
 			}
 		}
 	}

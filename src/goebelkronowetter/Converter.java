@@ -1,30 +1,21 @@
 package goebelkronowetter;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.JOptionPane;
 
 public class Converter extends Decorator {
-	private Chat chat;
 	private HashMap<String, String> words;
 	
 	public Converter(Chat chat){
-		this.chat = chat;
+		super(chat);
 		words = new HashMap<String, String>();
 		readWords();
 	}
 	
 	@Override
-	public void sendMessage(String message) {
+	public String writeMessage(String message) {
 		Set<String> keys = words.keySet();
 		Iterator<String> it = keys.iterator();
 		String gefiltert = message;
@@ -32,7 +23,7 @@ public class Converter extends Decorator {
 			String key = it.next();
 			gefiltert = gefiltert.replaceAll(key, words.get(key));
 		}
-		chat.sendMessage(gefiltert);
+		return gefiltert;
 	}
 	
 	private void readWords(){

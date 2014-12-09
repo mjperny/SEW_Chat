@@ -1,10 +1,7 @@
 package goebelkronowetter;
 
 import java.io.IOException;
-import java.net.InetAddress;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 /**
  * Starts the Chat with a hardcoding Multicast address
  * @author Melanie Goebel
@@ -22,7 +19,7 @@ public class Start {
 	 * @param add the multicastaddress
 	 */
 	public static void startChat(String user, String add, int port){
-		JChat chat = new JChat(user,add,port);
+		new JChat(user,add,port);
 	}
 }
 

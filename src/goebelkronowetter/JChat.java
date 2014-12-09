@@ -16,6 +16,9 @@ public class JChat implements Runnable,Chat{
 	private int port;// port where the socket run
 	protected MulticastSocket socket;
 	private GUIStart gui;// the gui starts when arguments are correct
+	private boolean badWords = true;
+	private boolean shoutIt = false;
+	private boolean converterOn = false;
 
 	/**
 	 * Makes all networking things.
@@ -89,7 +92,43 @@ public class JChat implements Runnable,Chat{
 	 * @return message with backspace
 	 */
 	public  String writeMessage(String message){
-		return message+ "\n";
+		String text = message;
+		if(shoutIt == true){
+			text = new Shouter(this).writeMessage(text);
+		}
+		if(badWords == false){
+			text = new BadWords(this).writeMessage(text);
+		}
+		return text+"\n";
+	}
+	public void closeChat(){
+		try {
+			this.socket.leaveGroup(address);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Connection error!");
+		}
+		this.socket.close();
+	}
+	/**
+	 * Set the boolean badWords
+	 * @param badWords if badWords should be written
+	 */
+	public void setBadWords(boolean badWords){
+		this.badWords = badWords;
+	}
+	/**
+	 * Set the boolean ShoutIt
+	 * @param shoutIt if the messages should be shouted (UpperCase)
+	 */
+	public void setShoutIt(boolean shoutIt){
+		this.shoutIt = shoutIt;
+	}
+	/**
+	 * Set the boolean converterOn
+	 * @param converterOn if the message should be converted
+	 */
+	public void setConverterOn(boolean converterOn){
+		this.converterOn = converterOn;
 	}
 }
 
