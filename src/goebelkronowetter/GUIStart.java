@@ -41,6 +41,9 @@ public class GUIStart implements ActionListener{
 		if(e.getSource()==panel.getWrite()) {
 			chat.sendMessage(panel.getWrite().getText());
 			panel.getWrite().setText("");
+		}else if(e.getSource() == panel.getSend()){
+			chat.sendMessage(panel.getWrite().getText());
+			panel.getWrite().setText("");
 		}
 		else if(e.getSource()==panel.getQuit()) {
 			chat.closeChat();

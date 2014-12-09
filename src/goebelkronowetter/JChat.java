@@ -80,7 +80,6 @@ public class JChat implements Runnable,Chat{
 				String mess = new String(data,0,packet.getLength());
 				gui.appendTxt(writeMessage(mess));
 			}
-
 		catch(IOException e) {
 			break;
 		}
