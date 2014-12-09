@@ -3,6 +3,7 @@ package goebelkronowetter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,11 +11,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
+
 public class Converter extends Decorator {
 	private Chat chat;
 	private HashMap<String, String> words;
 	
-	public Converter(Chat chat) throws IOException{
+	public Converter(Chat chat){
 		this.chat = chat;
 		words = new HashMap<String, String>();
 		readWords();
@@ -32,8 +35,9 @@ public class Converter extends Decorator {
 		chat.sendMessage(gefiltert);
 	}
 	
-	private void readWords() throws IOException{
-		File f = new File("converter.txt");
+	private void readWords(){
+		try{
+		File f = new File("data/converter.txt");
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(f),"UTF8"));
 
 		String s;
@@ -44,6 +48,11 @@ public class Converter extends Decorator {
 		
 		
 		in.close();
+		}catch(FileNotFoundException e){
+			JOptionPane.showMessageDialog(null, "File not found! It has to be in the directory data and named converter.txt");
+		}catch(IOException ioe){
+			JOptionPane.showMessageDialog(null, "Something went wrong with the file converter.txt");
+		}
 	}
 	
 }

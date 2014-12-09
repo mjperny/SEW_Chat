@@ -59,23 +59,15 @@ public class GUIStart implements ActionListener{
 		}else if(e.getSource() instanceof JToggleButton) {
 			decoratedChat = chat;
 			if (panel.getBadWords().isSelected()){
-				try {
 					decoratedChat = new BadWords(decoratedChat);
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(null, "Error", e1.getMessage(), JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				}
+				
 			}
 			if (panel.getShouter().isSelected()){
 				decoratedChat = new Shouter(decoratedChat);
 			}
 			if (panel.getConverter().isSelected()){
-				try {
 					decoratedChat = new Converter(decoratedChat);
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(null, "Error", e1.getMessage(), JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				}
+				
 			}
 		}
 	}
