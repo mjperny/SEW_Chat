@@ -1,0 +1,161 @@
+commit 3f52940ac2fd343016d758b0b00496753ee1dd9f
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 10 16:10:45 2014 +0100
+
+    Removed unnecessary code
+
+commit 8ef7b1d91311f06f3035ad2faefe0b24e489d478
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 10 16:07:01 2014 +0100
+
+    Added Java-doc comments
+
+commit 375e5f31d7ae5faa47eb66f68a1077494371b99c
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 10 15:52:51 2014 +0100
+
+    Not case-sensitive anymore
+
+commit f86acb70356746625cd4ed490550234a3819d88a
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 10 11:36:30 2014 +0100
+
+    Bugfixing: Rename class
+
+commit 0ae452edb418768df4fe74b763c3502c84fecd21
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 10 11:32:21 2014 +0100
+
+    Testcases about all Decoration and CheckArguments
+
+commit dd8f73b1f0c184f33c3821cbceb4079c017edd61
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 10 11:28:39 2014 +0100
+
+    Badwords not casesensitive anymore
+
+commit d2ac88bd4c300d131ad86117bd53db44da000689
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 9 14:19:23 2014 +0100
+
+    GUI improved
+
+commit 1bc87f0e4971683531324f1b1dfb599b528d2203
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 9 11:32:46 2014 +0100
+
+    Changed code that doesn't accord to the UML, fixed unclear deletions
+
+commit 0040e085c4b3b1f50ab2e0f4631c6ca541be2b60
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 9 08:47:20 2014 +0100
+
+    Added Exceptionhandling for the textfiles
+
+commit 0349d308d98617166798ea87f267f0e36c9039e8
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 21:18:41 2014 +0100
+
+    added badwords and converter txt Files
+
+commit d6ed03fe435779e4dcfbecae0fb56c50bbda6392
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 20:11:18 2014 +0100
+
+    added actionlistener to username textfield
+
+commit c49ed37336997f744da65e6efc21aced23035101
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 20:10:14 2014 +0100
+
+    added converter functionality
+
+commit 5290948e480823d30df0ccf4db702c69a712d2a8
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 19:57:32 2014 +0100
+
+    added class converter
+
+commit cdae59b80b15f2939e56a0c93dfb95b0a3670080
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 19:36:45 2014 +0100
+
+    added badwords decorator
+
+commit 146ea9c810c68172e70d1e2f9079d5323ecd594c
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 19:00:29 2014 +0100
+
+    using jtoggledbuttons and prepared actionlistener
+
+commit 5754734341b8e426502aca5ac03175b5393f87d0
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 18:51:52 2014 +0100
+
+    added shouter to the gui components
+
+commit 8d040fa75c8fa2a4c70525d74d1831fdfb850e39
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Sun Dec 7 18:30:55 2014 +0100
+
+    Added the class Shouter
+
+commit 7e0b699871398e0b92255ab942fe818ef8a5e015
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Thu Dec 4 19:06:27 2014 +0100
+
+    Asking port number too
+
+commit ffcd21835451dfc3a75030ee42157b50052038bd
+Author: Patricia Kronowetter <pkronowetter@student.tgm.ac.at>
+Date:   Thu Dec 4 10:54:55 2014 +0100
+
+    Added the interface Chat
+
+commit e45629bcb70c78d5c2ca6f0bbe386defb9a52373
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 3 20:42:56 2014 +0100
+
+    Problems and solutions added
+
+commit 692fd332b7bb96238533357fffb9b043a9f0acc7
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 3 20:41:54 2014 +0100
+
+    Unused code removed
+
+commit 3d5feabe17b53f26642fb48b41ac17979c1ee6fb
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Wed Dec 3 19:47:10 2014 +0100
+
+    Added method writeMessage(), preparing for decorator
+
+commit ee7088ce566a2343243ff87a01d6a000569111dc
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 2 14:28:50 2014 +0100
+
+    Asking the arguments in a JDialog
+
+commit b488de2d78d90ab6cec225fdf247312173e1f74d
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 2 10:09:01 2014 +0100
+
+    Exception handling and GUI improved
+
+commit 09200bcbf4508d52d30988a5802cf253ded65479
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 2 09:33:32 2014 +0100
+
+    Correct regEx for checking MulticastAddress
+
+commit 1cd3959758fd34c0d2b943802c4d26d16a389ed9
+Author: mgoebel-tgm <melanie.goebel@student.tgm.ac.at>
+Date:   Tue Dec 2 00:16:09 2014 +0100
+
+    A running chat-system with gui
+
+commit 0c57a237dba42028f23bf80ff5c9ed2ae34796b2
+Author: Melanie Göbel <melanie.goebel@student.tgm.ac.at>
+Date:   Thu Nov 27 11:31:31 2014 +0100
+
+    Initial commit
