@@ -23,8 +23,6 @@ public class Converter extends Decorator {
 	}
 	@Override
 	public String writeMessage(String message) {
-		Set<String> keys = words.keySet();
-		Iterator<String> it = keys.iterator();
 		String gefiltert = "";
 		String[] splitMessage = message.split(" ");
 		for(int i = 0; i < splitMessage.length; i++){
