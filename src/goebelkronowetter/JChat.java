@@ -98,6 +98,9 @@ public class JChat implements Runnable,Chat{
 		if(badWords == false){
 			text = new BadWords(this).writeMessage(text);
 		}
+		if(converterOn == true){
+			text = new Converter(this).writeMessage(text);
+		}
 		return text+"\n";
 	}
 	public void closeChat(){

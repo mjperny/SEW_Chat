@@ -1,5 +1,9 @@
 package goebelkronowetter;
-
+/**
+ * A class that is a chat and uses a chat
+ * @author Melanie Goebel, Patricia Kronowetter
+ * @version 2014-12-10
+ */
 public abstract class Decorator implements Chat {
 	private Chat c; 
 

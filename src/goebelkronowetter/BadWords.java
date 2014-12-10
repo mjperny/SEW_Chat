@@ -1,10 +1,17 @@
 package goebelkronowetter;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+/**
+ * Censors badWords of a message, using a File named BadWords.txt in the directory data
+ * @author Melanie Göbel, Patricia Kronowetter
+ * @version 2014-12-10
+ */
 public class BadWords extends Decorator{
 	private ArrayList<String> ch = new ArrayList<String>();
 	private FileReader fr;
@@ -40,6 +47,11 @@ public class BadWords extends Decorator{
 		}
 		return censorMessage;
 	}
+	/**
+	 * Censor a single word if it is in the File
+	 * @param word the word to censor
+	 * @return the censored word if it is in the File (when not it is the same as the paramter)
+	 */
 	public String censorWord(String word){
 		String censorWord = "";
 		try{
@@ -58,10 +70,11 @@ public class BadWords extends Decorator{
 				}
 
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+		}catch(FileNotFoundException e){
+			JOptionPane.showMessageDialog(null, "File not found! It has to be in the directory data and named converter.txt");
+		}catch(IOException ioe){
+			JOptionPane.showMessageDialog(null, "Something went wrong with the file converter.txt");
+		}
 		return word;
 	}
 

@@ -1,7 +1,7 @@
 package goebelkronowetter;
 /**
  * Methods what a chat have to do
- * @author Melanie Goebel
+ * @author Melanie Goebel, Patricia Kronowetter
  * @version 2014-12-09
  */
 public interface Chat{
@@ -20,8 +20,20 @@ public interface Chat{
 	 * @return
 	 */
 	public String writeMessage(String message);
+	/**
+	 * Set if badWords should be censored
+	 * @param badWords if the badWords should be censored
+	 */
 	public void setBadWords(boolean badWords);
+	/**
+	 * Set if the text should be shouted
+	 * @param shoutIt if it should be shouted
+	 */
 	public void setShoutIt(boolean shoutIt);
+	/**
+	 * Set if the words should be converted to other
+	 * @param converterOn if the words should be converted to other words
+	 */
 	public void setConverterOn(boolean converterOn);
 }
 	

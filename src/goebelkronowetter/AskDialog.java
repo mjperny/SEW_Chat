@@ -20,6 +20,9 @@ public class AskDialog extends JDialog {
 	private JTextField input2;
 	private JTextField input3;
 
+	/**
+	 * Creates a JDialog to ask all arguments for the Chat
+	 */
 	public AskDialog() {  
 		super();  
 		error.setForeground(Color.RED); // Set Font-Color
