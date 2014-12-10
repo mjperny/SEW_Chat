@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author Melanie Goebel
  * @version 2014-10-12
  */
-public class DecorationTest {
+public class DecoratorTest {
 	
 	@Test
 	/**
